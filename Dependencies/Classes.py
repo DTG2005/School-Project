@@ -12,6 +12,7 @@ class Entity:
     """An entity class that refers to any character on screen one wishes to interact with, by either fighting or talking to."""
     def __init__(self, health = int):
         self.health = health
+        self.CombatMode = False
 
 class Armour:
     """A default armour class that has a set attributes to give to any entity it is equipped to."""
@@ -29,6 +30,7 @@ class Enemy(Entity):
     def __init__(self, weapon = Weapon):
         super().__init__(100)
         self.weapon = weapon
+        self.isEnemy = True
         self.de = 5
         self.at = 7
 
@@ -70,3 +72,7 @@ class Castellan(Player):
 
 def spawn(entity = Entity, weapon = Weapon):
     ent = entity(weapon)
+    return ent
+
+def despawn(entity = Entity):
+    entity.__del__()

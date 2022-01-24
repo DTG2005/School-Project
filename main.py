@@ -1,4 +1,6 @@
 import Dependencies.Classes as Classes
+import Dependencies.Behaviour as B
+import Dependencies.Weapons_and_Armour as WA
 
 while True:
     response = input("Do you want to create a new profile or quit? (N/Q)")
@@ -17,5 +19,6 @@ while True:
         name = input("Enter your name during this adventure.")
         print("Your name has now been registered as {}!!! Let us begin your journey...".format(name))
 
-        Classes.spawn(Classes.Enemy, )
+        en1 = Classes.spawn(Classes.Enemy(), WA.Small_Club)
     
+        B.EnterCombatMode()
